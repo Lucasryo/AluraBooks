@@ -1,0 +1,195 @@
+.cabecalho__menu_hamburger {
+    width: 24px;
+    /*Largura*/
+    height: 24px;
+    /*Altura */
+    background-image: url(../img/Menu.svg);
+    /*buscou imagem na pasta img */
+    background-repeat: no-repeat;
+    /*nao repete a imagem*/
+    background-position: center;
+    /* posiciona a imagem no centro */
+    display: inline-block;
+    /*Se fosse inline não permitira altura e largura */
+}
+
+.cabecalho {
+    background-color: var(--branco);
+    display: flex;
+    /*transformou o cabecalho em flex-container e seus filhos viraram flex-items e com isso é liberado algumas propiedades no css*/
+    justify-content: space-between;
+    /*separa varios elementos com uma distancia entre eles*/
+    align-items: center;
+    position: relative;
+    /* positio relative libera a opção de por outros atributos como top bottom,essencial para liberar o absolut e movimentar a lista do menu*/
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.container__imagem {
+    padding: 1em;
+    /*define o espaçamento */
+}
+
+.lista-menu {
+    display: none;
+    /*Desaparece com a lista a nao ser que seja requisitada */
+    position: absolute;
+    /* permite que voce movimente o elemento de acordo com outro que veio antes que tenha a posição diferente de static */
+    top: 100%;
+    /* movimenta a lista para baixo retirando 100% do topo */
+    width: 60vw;
+    /*Aumentou o tamanho da lista,w=largura vw=viewport widht=largura da tela lembrando que 100 é o total*/
+}
+
+.container__botao:checked~.lista-menu {
+    /*checked é uma pseudo-classe aonde verifica se tá preenchida a check-box(lista-menu),o ~é um combinador css aonde procura o elemento anterior,se o container botão tiver checked vai procurar o lista menu e vai colocar o display block */
+    display: block;
+    background-color: var(--branco);
+}
+
+.lista-menu__titulo,
+.lista-menu__item {
+    padding: 1em;
+    /*espaçamento interno */
+    background-color: var(--branco);
+    /* cor de fundo  so fucionou devido ao espaçamento por causa da margem pequena*/
+
+}
+
+.lista-menu__titulo {
+    color: var(--preto);
+    /*definiu a cor do titulo(fonte)*/
+    font-weight: 700;
+    /*peso*/
+}
+
+.lista-menu__link {
+    background: var(--azul-degrade);
+    background-clip: text;
+    /*prende a color somente onde tem texto*/
+    -webkit-background-clip: text;
+    /*funciona em outros navegadores */
+    -webkit-text-fill-color: transparent;
+    /*funciona em outros navegadores */
+    text-transform: uppercase;
+    /*coloca tudo em letra maiuscula*/
+}
+
+.container__botao {
+    display: none;
+    /*tira o menu de checked*/
+    background-color: var(--branco);
+}
+
+.container__titulo {
+    display: none;
+}
+
+.opcoes {
+    display: none;
+}
+
+.container__texto {
+    display: none;
+}
+
+.container__botao:checked~.container__rotulo>.cabecalho__menu_hamburger {
+    background-image: url("../img/Menu\ Aberto.svg");
+}
+
+.container__botao:checked~.container__rotulo {
+    background: var(--azul-degrade);
+}
+
+@media screen and (min-width: 1024px) {
+
+    .container__titulo,
+    .container__titulo--negrito {
+        font-family: var(--fonte-secundaria);
+        font-size: 30px;
+    }
+
+    .container__titulo {
+        font-weight: 400;
+        display: block;
+    }
+
+    .container__titulo--negrito {
+        font-weight: 700;
+    }
+
+    .opcoes {
+        display: flex;
+    }
+
+    .opcoes__item {
+        padding: 1em;
+        text-transform: uppercase;
+    }
+
+    .opcoes__link {
+        text-decoration: none;
+        color: var(--preto);
+    }
+
+    .container__imagem-transparente {
+        display: none;
+    }
+
+    .cabecalho__menu_hamburger {
+        display: none;
+    }
+
+    .opcoes__botao:checked~.lista-menu {
+        display: block;
+        width: auto;
+    }
+
+    .opcoes__botao {
+        display: none;
+    }
+
+    .opcoes__botao:checked~.opcoes__rotulo>.opcoes__item {
+        background: var(--azul-degrade);
+        color: var(--branco);
+    }
+
+    .opcoes__item {
+        padding: 2em 1em;
+    }
+
+    .lista-menu__item:hover {
+        background-color: var(--azul-degrade);
+    }
+
+    .lista-menu__item:hover>.lista-menu__link {
+        -webkit-text-fill-color: var(--branco);
+        text-decoration: none;
+    }
+}
+
+@media screen and (min-width: 1728px) {
+    .container__link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--preto)
+    }
+
+    .cabecalho {
+        padding: 0.2em;
+    }
+
+    .container__texto {
+        display: block;
+    }
+
+    .opcoes {
+        margin-right: auto;
+        color: var(--preto);
+    }
+}

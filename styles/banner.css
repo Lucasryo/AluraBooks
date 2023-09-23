@@ -1,0 +1,78 @@
+.banner {
+    background: var(--azul-degrade);
+    /*definiu a cor de fundo */
+    color: var(--branco);
+    /*definiu a cor de texto */
+    text-align: center;
+    /*centraliza o conteúdo do container */
+    padding: 2.5em 2em;
+    /*cria o espaçamento interno então limita até onde vai os elementos,midida em tamanho  da fonte padrão ex:2.5*16=32px MEDIDA RESPONSIVA */
+}
+
+.banner__titulo {
+    font-size: 18px;
+    /*tamanho da fonte do titulo */
+    font-weight: 700;
+    /*peso da fonte do titulo */
+}
+
+.banner__texto {
+    font-weight: 500;
+    /*peso da fonte do texto*/
+    margin: 1em 0;
+    /*margem entre os textos */
+}
+
+.banner__pesquisa {
+    background-color: transparent;
+    /*cor do background transparente*/
+    border: 1px solid var(--branco);
+    /*cria uma borda,tamanho 1px,tipo solido e a cor branca*/
+    color: var(--branco);
+    /*cor da escrita branca*/
+    border-radius: 24px;
+    /*tamanho das borda*/
+    padding: 1em;
+    /* adicionou espaçamento emcima,embaixo e dos lados*/
+    width: 100%;
+    /*definiu que o tamanho tem que ser 100% do que pode ocupar no banner*/
+}
+
+.banner__pesquisa::placeholder {
+    /*Quando colocamos no body,estava atigindo todo o atributo mas o placeholder não era afetado por isso o ::placeholder */
+    font-family: var(--fonte-principal);
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    color: var(--branco);
+    background: url("../img/Lupa.svg") no-repeat;
+    background-position: 1em;
+}
+
+@media screen and (min-width: 1024px) {
+    .banner__titulo {
+        font-size: 36px;
+    }
+
+    .banner__pesquisa {
+        width: 50%;
+    }
+
+    .banner__pesquisa::placeholder {
+        background-position: 7em;
+    }
+}
+
+@media screen and (min-width: 1728px) {
+    .banner__pesquisa {
+        width: 35%;
+    }
+
+    .banner__pesquisa::placeholder {
+        background-position: 15em;
+    }
+
+    .banner {
+        padding: 5em 0;
+    }
+}
